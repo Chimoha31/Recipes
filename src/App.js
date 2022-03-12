@@ -2,11 +2,12 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import Recipe from "./Recipe";
 
+
 function App() {
  
 
   const [searchRecipe, setSearchRecipe] = useState("");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("banana");
   const [recipes, setRecipes] = useState([]);
 
   const getRecipes = async () => {
@@ -17,7 +18,7 @@ function App() {
     setRecipes(data.hits);
     console.log(data.hits);
   };
-
+ 
   const inputHandler = (e) => {
     setSearchRecipe(e.target.value);
   };
@@ -28,7 +29,7 @@ function App() {
   };
 
   useEffect(() => {
-    getRecipes();
+    getRecipes()
   }, [query]);
 
   return (
